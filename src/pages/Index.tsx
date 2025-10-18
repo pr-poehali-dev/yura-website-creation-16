@@ -8,6 +8,7 @@ import TagFilter from '@/components/TagFilter';
 import NewsletterSubscribe from '@/components/NewsletterSubscribe';
 import CommentSection from '@/components/CommentSection';
 import ShareButtons from '@/components/ShareButtons';
+import AuthorSection from '@/components/AuthorSection';
 import Icon from '@/components/ui/icon';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -332,21 +333,37 @@ export default function Index() {
           </div>
         </Tabs>
 
+        <div id="author" className="pt-8">
+          <AuthorSection />
+        </div>
+
         <div id="subscribe" className="pt-8">
           <NewsletterSubscribe />
         </div>
 
         <footer className="text-center space-y-4 pt-12 pb-8 border-t">
           <div className="flex justify-center gap-6">
-            <Button variant="ghost" size="sm">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
               <Icon name="Home" size={16} className="mr-2" />
               Главная
             </Button>
-            <Button variant="ghost" size="sm">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => document.getElementById('author')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Icon name="User" size={16} className="mr-2" />
               О авторе
             </Button>
-            <Button variant="ghost" size="sm">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => document.getElementById('subscribe')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Icon name="Mail" size={16} className="mr-2" />
               Контакты
             </Button>
